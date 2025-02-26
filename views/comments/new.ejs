@@ -1,0 +1,13 @@
+<%- include('../partials/header'); -%>
+<div class="container" style="width:50%">
+    <h2>Add new comment to :<%=blog.title%></h2>
+    <br>
+    <form action="/blogs/<%= blog._id %>/comments" method="POST">
+      <div class="mb-3">
+       <label for="exampleFormControlInput1" class="form-label">Comment</label>
+       <input type="text" class="form-control" id="exampleFormControlInput1" name="comment[text]"  placeholder="comment">
+      </div>
+      <input  class="btn btn-primary" type="submit">
+    </form>
+</div>
+<%- include('../partials/footer'); -%>

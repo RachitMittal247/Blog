@@ -1,0 +1,29 @@
+<%- include('../partials/header'); -%>
+<br>
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-5">
+        <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png" class="img-fluid"
+          alt="Sample image">
+      </div>
+      <div class="col-7">
+     <h2>New Blog</h2>
+     <form action="/blogs" method="POST">
+       <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Title</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="blog[title]"  placeholder="Blog_Title">
+       </div>
+       <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Image</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="blog[image]"  placeholder="Image_URL">
+       </div>
+       <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Blog Content</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1"  name="blog[body]" rows="3"></textarea>
+       </div>
+       <input  class="btn btn-primary" type="submit">
+     </form>
+   </div>
+ </div>
+</div>
+<%- include('../partials/footer'); -%>

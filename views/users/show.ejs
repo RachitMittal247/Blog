@@ -1,0 +1,37 @@
+<%- include('../partials/header'); -%>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" style="text-align:center;">
+      <br>
+      <br>
+      <img src="<%=user.avatar%>" alt="user profile image" style="border-radius:50%; height:30vh;">
+      <h1><%= user.firstname + " " + user.lastname %></h1>
+      <h5><%= user.email %></h5>
+    </div>
+    <div class="col-md-8">
+      <h1><%= user.username%>'s Blogs :</h1>
+      <br>
+      <% blogs.forEach(function(blog) { %>
+       <div class="card mb-3">
+         <div class="row g-0">
+           <div class="col-md-4">
+             <img src="<%= blog.image %>" class="img-fluid rounded-start" style="height:100%;">
+           </div>
+           <div class="col-md-8">
+             <div class="card-body">
+               <a href="/blogs/<%= blog._id %>"><h5 class="card-title"><%= blog.title %></h5></a>
+               <p class="card-text"><small class="text-muted"><%= blog.created.toDateString() %></small></p>
+               <p class="card-text"><%- blog.body.substring(0, 100) %>....</p>
+               <a href="/blogs/<%= blog._id %>"><button type="button" class="btn btn-primary">Read More <i class="fas fa-arrow-right"></i></button></a>
+             </div>
+           </div>
+         </div>
+       </div>
+     <% }); %>
+    </div>
+
+  </div>
+
+</div>
+<%- include('../partials/footer'); -%>

@@ -1,0 +1,36 @@
+<%- include('../partials/header'); -%>
+  <div class="container" style="width:80%" >
+    <div class="row align-items-center" style="padding:10px; border:1.5px solid black; border-radius:10px;">
+      <div class="col-2">
+        <h1>LOGO</h1>
+      </div>
+        <div class="col">
+          <form class="d-flex" action="/blogs"  method="GET">
+            <input class="form-control form-control-lg" type="text" name="search" placeholder="Search Blog...">
+            <button class="btn btn-warning" type="submit" style="margin-left:10px;">Search<i class="fas fa-search"></i></button>
+          </form>
+        </div>
+        <div class="col-3">
+           <a class="btn-lg btn-info" style="float:right" href="/blogs/new"><i class="fas fa-pencil-alt"></i>Add New Blog</a>
+        </div>
+    </div>
+    <br>
+      <% blogs.forEach(function(blog) { %>
+       <div class="card mb-3">
+         <div class="row g-0">
+           <div class="col-md-4">
+             <img src="<%= blog.image %>" class="img-fluid rounded-start" style="height:100%;">
+           </div>
+           <div class="col-md-8">
+             <div class="card-body">
+               <a href="/blogs/<%= blog._id %>"><h5 class="card-title"><%= blog.title %></h5></a>
+               <p class="card-text"><small class="text-muted">Posted by <strong><a href="/users/<%=blog.author.id %>"><%= blog.author.username %></a></strong></small></p>
+               <p class="card-text"><%- blog.body.substring(0, 100) %>....</p>
+               <a href="/blogs/<%= blog._id %>"><button type="button" class="btn btn-primary">Read More <i class="fas fa-arrow-right"></i></button></a>
+             </div>
+           </div>
+         </div>
+       </div>
+     <% }); %>
+</div>
+<%- include('../partials/footer'); -%>

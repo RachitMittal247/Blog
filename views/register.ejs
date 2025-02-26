@@ -1,0 +1,46 @@
+<%- include('./partials/header'); -%>
+
+<div class="container-fluid " style="margin-top:45px;">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <h2>SignUp Form:</h2>
+        <hr>
+      <form class="row g-3" action="/register" method="post">
+        <div class="col-md-6">
+          <input type="text" class="form-control form-control-lg" name="firstname" placeholder="firstname">
+          <label class="form-label">Firstname</label>
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control form-control-lg" name="lastname" placeholder="lastname">
+          <label class="form-label">Lastname</label>
+        </div>
+        <div class="col-12">
+          <input type="email" class="form-control form-control-lg" name="email" placeholder="email">
+          <label class="form-label">Email</label>
+        </div>
+        <div class="col-12">
+          <input type="text" class="form-control form-control-lg" name="avatar" placeholder="avatar_url">
+          <label class="form-label">Avatar</label>
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control form-control-lg" name="username" placeholder="username">
+          <label class="form-label">Username</label>
+        </div>
+        <div class="col-md-6">
+          <input type="password" class="form-control form-control-lg" name="password" placeholder="password">
+          <label class="form-label">Password</label>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary btn-lg">Register</button>
+          <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="/login" class="link-danger">Login</a></p>
+        </div>
+      </form>
+      </div>
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png" class="img-fluid"
+          alt="Sample image">
+      </div>
+    </div>
+  </div>
+
+<%- include('./partials/footer'); -%>

@@ -1,0 +1,46 @@
+<%- include('../partials/header'); -%>
+<div class="container" style="width:60%;">
+  <div class="card mb-3">
+    <img src="<%= blog.image %>" class="card-img-top">
+    <div class="card-body">
+      <div class="row" style="margin-bottom:7px;">
+        <div class="col-9">
+          <h4 class="card-title"><%= blog.title %></h4>
+        </div>
+        <div class="col-3" style="text-align:right;">
+          <% if(currentUser && blog.author.id.equals(currentUser._id)){ %>
+              <a class="btn btn-warning" href="/blogs/<%= blog._id %>/edit" style="margin-right:10px;"><i class="fas fa-edit"></i></a>
+              <form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+              </form>
+          <% } %>
+        </div>
+      </div>
+      <p class="card-text"><small class="text-muted">Posted by <strong><a href="/users/<%=blog.author.id %>"><%= blog.author.username %></a></strong><span style="float:right"><%= blog.created.toDateString() %></span></small></p>
+      <p class="card-text"><%- blog.body %></p>
+    </div>
+  </div>
+  <div >
+          <ul class="list-group">
+            <li class="list-group-item">
+              <form class="d-flex" action="/blogs/<%= blog._id %>/comments"  method="post">
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="comment[text]"  placeholder="comment" style="width:75%">
+                <input  class="btn btn-success" style="margin-left:20px;" type="submit" value="Add Comment">
+              </form>
+            </li>
+            <% blog.comments.forEach(function(comment){ %>
+              <li class="list-group-item">
+                <strong><%= comment.author.username %></strong> - <%= comment.text %>
+                <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                <form id="delete" action="/blogs/<%= blog._id %>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-xs btn-danger" style="float:right"><i class="far fa-trash-alt"></i></button>
+                </form>
+                <% } %>
+              </li>
+             <% }); %>
+          </ul>
+  </div>
+</div>
+<br>
+<br>
+<%- include('../partials/footer'); -%>

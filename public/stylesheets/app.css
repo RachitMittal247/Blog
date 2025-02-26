@@ -1,0 +1,12 @@
+#delete {
+  display: inline;
+}
+
+#search {
+  display: inline-block;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
